@@ -1,0 +1,132 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+ int opcion, opc;
+  int i, a, k, j, r, x, num;
+  int nue, max;
+  float aux;
+  
+  printf("Arreglo \n");
+  printf("\nIngrese el tamaño del arreglo: ");
+  scanf("%d",&a);
+  int array[a]; 
+  
+  for(i=0; i<a; i++) {
+    printf("Ingresa la ubicacion %d : ",i );
+    scanf("%d",&array[i]);
+    int array[i];
+    }
+  
+     do {
+        printf("\n\nMenu de Opciones\n");
+        printf("\t1. Altas\n");
+        printf("\t2. Eliminar\n");
+        printf("\t3. Modificar\n");
+        printf("\t4. Buscar\n");
+        printf("\t5. Ordenar\n");
+        printf("\t6. SALIR\n");
+        
+        printf("\nIngrese una opcion: ");
+        scanf("%d", &opcion);
+  
+        switch (opcion) {
+            case 1:
+               printf("Elementos del arreglo guardados: \n");
+                printf("V [");
+              for (int i=0; i<a; i++){
+                printf("\t%d", array[i]);
+              }
+              printf("]\n");
+                break;
+                
+           case 2:
+                printf("Elimine el elemento deseado \n");
+                printf("Ingrese la posicion a eliminar: \n");
+                     scanf("%d",&num);
+                     for(i=0; i<a-1 ; i++) {
+                       if(array[i]==num)
+                       {
+                         for(i=num;i<a ; i++) {
+                           array[i]=array[a+1];
+                           }
+                           printf("\nVector nuevo: v[ ");
+                            for(i=0; i<a-1; i++){
+                              printf("%d ", array[i]);
+                              array[i]=nue;
+                              }
+                   printf(" ]\n");
+                       } else if (array[i]!=num) {
+                         printf("\nNo se encuentra el numero en el arreglo. ");
+                       }
+                     }
+                   break;
+                
+            case 3:
+                printf("Ingrese la posicion del elemento que desea modificar: \n");
+              scanf("%d",&i);
+          printf("En la posicion %d actualmente hay un %d \n",i,array[i]);
+          printf("Ingresa el nuevo elemento: ");
+          scanf("%d",&nue);
+          array[i]=nue;
+          printf("El nuevo vector: \n");
+          printf("V [");
+              for (int i=0; i<a; i++){
+                  printf("\t%d", array[i]);
+              }
+              printf("]\n");
+          break;
+            case 4:
+              printf("Ingrese el elemento a buscar:  \n");
+                   scanf("%d",&num);
+                   for(i=0; i<a ; i++) { 
+                     if(array [i]==num) {
+                       printf("La posicion es: %d \n",i);
+                       }else {
+                       printf("En la posicion %d no se encuentra\n",i);
+                       }
+                     }
+                   break;
+          
+            case 5:
+               printf("\tOrden\n");
+              printf("1. Ascendente\n");
+              printf("2. Descendente\n");
+              scanf("%d", &opc);
+              
+               switch(opc){
+                 case 1:
+                 for (i=0; i<10-1; i++){
+                    for (x=0; x<10-1; x++){
+                      if(array[i]>array[i+1]){
+                        max=array[i];
+                        array[i]=array[i+1];
+                        
+                        array[i+1]=max;
+                      }
+                    }
+                   case 2:
+                    for (i=0; i<10-1; i++){
+                      for (x=0; x<10-1; x++){
+                        if(array[i]<array[i+1]){
+                          max=array[i];
+                          array[i]=array[i+1];
+                          array[i+1]=max;
+                        }
+                      }
+                    }
+                    for (i=0; i<10; i++){
+                      printf("\n %d ",array[i]);
+                      }
+                    }
+              }
+              break;
+//.........................................................            
+            case 6:
+            	printf("Gracias por su paciencia, favor de calificarme con 10 :D");
+            	break;
+             default : printf( "\n   ERROR, favor de ingresar una opccion valida. Reiniciar..." );
+        }
+   } while ( opcion <= 5 );
+  return 0;
+  }  
